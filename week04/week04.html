@@ -8,11 +8,15 @@
    		 <body>
     				<a-scene embedded arjs="trackingMethod: best;">
 						<a-marker preset="hiro">
-								<a-box position='0 0.5 0' color="blue" depth="2" height="4" width="0.5"></a-box> 													</a-marker>
+								<a-box position='0 0.5 0' color="blue" depth="2" height="2" width="0.5"></a-box> 													</a-marker>
 						<a-marker preset="kanji">
-								<a-box position='0 0.5 0'color="red" depth="2" height="4" width="0.5"></a-box> 													</a-marker>
+								<a-box position='0 0.5 0'color="red" depth="2" height="2" width="0.5"></a-box> 													</a-marker>
 						<a-marker type=''pattern" url="pattern-IM.patt">
-								<a-box position='0 0.5 0'color="green" depth="2" height="4" width="0.5"></a-box> 													</a-marker>
+								<a-entity geometry="prlmitive: sphere; radius: 1.5" 
+										light="type: point; color: white; intensity: 2"
+										materials-color: white; shader: flat; src: images.jpg"
+										position="0 0 -2"></a-entity>
+ 						</a-marker>
 							<a-entity camera></a-entity>
     		  			  </a-scene>
    		 </body>
