@@ -2,38 +2,31 @@
 
 <html>
 		<head>
-				<meta charset="utf-8">
-  				<script src="../aframe/aframe.min.js"></script>
-				<script src="../ar/aframe-ar.js"></script>
-				<title>Приклад 5 тижня - нестандартні маркери</title>
+  				<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+				<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+				<title> Приклад 5 тижня - нестандартні маркери</title>
 		</head>
-   		<body>
-    				<a-scene embedded arjs>
+   		 <body>
+    				<a-scene embedded arjs="trackingMethod: best; debag: false;">
 						<a-marker type="pattern" url="../assets/pattern-letterA.patt">
-								<a-box color="green" ></a-box>
+								<a-box position='0.5 0.5 0' color="green" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
 						<a-marker type="pattern" url="../assets/pattern-letterB.patt">
-								<a-box color="red" ></a-box>
+								<a-box position='0.5 0.5 0' color="red" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
 						<a-marker type="pattern" url="../assets/pattern-letterC.patt">
-								<a-box color="white" ></a-box>
+								<a-box position='0.5 0.5 0' color="white" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
 						<a-marker type="pattern" url="../assets/pattern-letterD.patt">
-								<a-box color="yellow" ></a-box>
+								<a-box position='0.5 0.5 0' color="yellow" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
 						<a-marker type="pattern" url="../assets/pattern-letterF.patt">
-								<a-box color="blue" ></a-box>
+								<a-box position='0.5 0.5 0' color="blue" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
 						<a-marker type="pattern" url="../assets/pattern-letterG.patt">
-								<a-box color="magenta" ></a-box>
+								<a-box position='0.5 0.5 0' color="magenta" depth="1" height="1" width="1"></a-box>
 						</a-marker>
-
-							<a-entity camera></a-entity>
+						<a-entity camera></a-entity>
     		  		 </a-scene>
    		 </body>
 </html>
