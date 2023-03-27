@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+		<head>
+  				<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+				<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+				<script src="triangle.js"></script>
+		</head>
+   		 <body>
+    				<a-scene embedded arjs="trackingMethod: best;">
+						<a-marker type="pattern" url="../assets/pattern-letterA.patt" id="A" registerevents>
+								<a-sphere radius="0.10" color="red"></a-sphere>
+								<a-entity id="lineAB"></a-entity>
+						</a-marker>
+						<a-marker type="pattern" url="../assets/pattern-letterB.patt" id="B" registerevents>
+								<a-sphere radius="0.10" color="blue"></a-sphere>
+								<a-entity id="lineBC"></a-entity>
+						</a-marker>
+						<a-marker type="pattern" url="../assets/pattern-letterC.patt" id="C" registerevents>
+								<a-sphere radius="0.10" color="green"></a-sphere>
+								<a-entity id="lineAC"></a-entity>
+						</a-marker>
+					<a-entity run></a-entity>
+					<a-camera-static/>
+    		  		</a-scene>
+   		 </body>
+</html>
