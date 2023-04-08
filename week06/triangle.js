@@ -16,14 +16,14 @@ AFRAME.registerComponent('registerevents', {
 
 AFRAME.registerComponent('run', {
  		init: function() {
-			 this.A = document.querySelector("#A");
-			 this.B = document.querySelector("#B");
-			 this.C = document.querySelector("#C");
+			this.A = document.querySelector("#A");
+			this.B = document.querySelector("#B");
+			this.C = document.querySelector("#C");
 			this.D = document.querySelector("#C");
 			this.F = document.querySelector("#C");
-			 this.p0 = new THREE.Vector3();
-			 this.p1 = new THREE.Vector3();
-			 this.p2 = new THREE.Vector3();
+			this.p0 = new THREE.Vector3();
+			this.p1 = new THREE.Vector3();
+			this.p2 = new THREE.Vector3();
 			this.p3 = new THREE.Vector3();
 			this.p4 = new THREE.Vector3();
 
@@ -43,21 +43,16 @@ AFRAME.registerComponent('run', {
 			 this.cylinderBC.visible = false;
 
 			 this.cylinderCD = new THREE.Mesh( geometry, material );
-			 this.lineAC = document.querySelector('#lineAC').object3D;
-			 this.lineAC.add( this.cylinderAC );
-			 this.cylinderAC.visible = false;
-
-			this.cylinderCD = new THREE.Mesh( geometry, material );
 			 this.lineCD = document.querySelector('#lineAC').object3D;
 			 this.lineCD.add( this.cylinderCD );
 			 this.cylinderCD.visible = false;
 
-			this.cylinderDF = new THREE.Mesh( geometry, material );
+			 this.cylinderDF = new THREE.Mesh( geometry, material );
 			 this.lineDF = document.querySelector('#lineAC').object3D;
 			 this.lineDF.add( this.cylinderAC );
 			 this.cylinderDF.visible = false;
 
-			this.cylinderFA = new THREE.Mesh( geometry, material );
+			 this.cylinderFA = new THREE.Mesh( geometry, material );
 			 this.lineFA = document.querySelector('#lineAC').object3D;
 			 this.lineFA.add( this.cylinderAC );
 			 this.cylinderFA.visible = false;
