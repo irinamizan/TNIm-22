@@ -9,17 +9,17 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
-const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-const boxmaterial = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( boxgeometry, boxmaterial );
-scene.add( cube );
+const pyramidgeometry = new THREE.CylinderGeometry( 0, 0.8, 2, 4 );
+const pyramidmaterial = new THREE.MeshLambertMaterial({color: 0xf3fff2});
+const pyramidmesh=new THREE.Mesh(pyramidgeometry, pyramidmaterial);
+pyramidmesh.position.set(0, 2, -10);
+scene.add(pyramidmesh);
 
-const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
-const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );
-const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
-scene.add( cylinder );
-cylinder.position.z = -25;
-cylinder.position.x = -5;
+var boxgeometry=new THREE.BoxGeometry(1, 1, 1);
+var boxmaterial=new THREE.MeshNormalMaterial({color: 0xFF0000, transparent: true, opacity: 1});
+var boxmesh=new THREE.Mesh(boxgeometry, boxmaterial);
+boxmesh.position.set(-0.9, 0, -6);
+scene.add(boxmesh);
 
 var lightOne=new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(lightOne);
@@ -29,9 +29,29 @@ scene.add(lightTwo);
 
 lightTwo.position.set(25, 0, -25)
 
+var spheregeometry=new THREE.SphereGeometry(0.5);
+var spherematerial=new THREE.LineBasicMaterial({color: 0x888888});
+var spheremesh=new THREE.Line(spheregeometry, spherematerial);
+spheremesh.position.set(0.9, 0, -6);
+scene.add(spheremesh);
+
+var circlegeometry=new THREE.CircleBufferGeometry(0.5);
+var circlematerial=new THREE.MeshStandardMaterial({color: 0x098877, roughness: 90.0, metalness: 0.2});
+var circlemesh=new THREE.Mesh(circlegeometry, circlematerial);
+circlemesh.position.set(2, 0, -6);
+circlemesh.rotation.set(0, 0.5, 0);
+scene.add(circlemesh);
+
+var planegeometry=new THREE.PlaneGeometry(10, 10);
+var planematerial=new THREE.MeshPhongMaterial({color: 0xF3FFE2, specular: 0xFF0000, shininess: 50});
+var planemesh=new THREE.Mesh(planegeometry, planematerial);
+planemesh.position.set(0, -20, -100);
+scene.add(planemesh);
+
 camera.position.z = 7;
 camera.position.x = 2;
 
+var delta=0;
 renderer.setClearColor (0x555555);
 renderer.clear();
 
@@ -48,5 +68,9 @@ function animate() {
 		camera.position.x = radius * Math.cos(angle) + 2;
 		camera.position.y = radius * Math.sin(angle);
 		angle += Math.PI/180;
+
+		delta+=0.1;
+		planegeometry.vertices[0].z=-25+Math.sin(delta)*50;
+		planegeometry.verticesNeedUpdate=true;
 }
 animate();
