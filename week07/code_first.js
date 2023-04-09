@@ -51,6 +51,7 @@ scene.add(planemesh);
 camera.position.z = 7;
 camera.position.x = 2;
 
+var delta=0;
 renderer.setClearColor (0x555555);
 renderer.clear();
 
@@ -67,5 +68,9 @@ function animate() {
 		camera.position.x = radius * Math.cos(angle) + 2;
 		camera.position.y = radius * Math.sin(angle);
 		angle += Math.PI/180;
+		
+		delta+=0.1;
+		planegeometry.vertices[0].z=-25+Math.sin(delta)*50;
+		planegeometry.verticesNeedUpdate=true;
 }
 animate();
