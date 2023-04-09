@@ -30,7 +30,7 @@ AFRAME.registerComponent('run', {
 			 let material = new THREE.MeshLambertMaterial(	{color:0xFF0000});
 			 let geometry=new THREE.CylinderGeometry( 0.05, 0.05, 1, 12);
 			 geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, 0.5, 0 ) );
-			 geometry.applyMatrix( new THREE.Matrix4().makeRotationX(THREE.Math.degToRad( 90 ) ) );
+			 geometry.applyMatrix( new THREE.Matrix4().makeRotationX(THREE.MathUtils.degToRad( 90 ) ) );
 
 			 this.cylinderAB = new THREE.Mesh( geometry, material );
 			 this.lineAB = document.querySelector('#lineAB').object3D;
@@ -102,12 +102,12 @@ AFRAME.registerComponent('run', {
 				if ( !markerVisible["A"] )
 					 this.cylinderAB.visible = this.cylinderAC.visible = this.cylinderAD.visible = this.cylinderAF.visible = false;
 				if ( !markerVisible["B"] )
-					 this.cylinderAB.visible = this.cylinderBC.visible = this.cylinderBD.visible = this.cylinderBF.visible = false;
+					 this.cylinderBA.visible = this.cylinderBC.visible = this.cylinderBD.visible = this.cylinderBF.visible = false;
 				if ( !markerVisible["C"] )
-					 this.cylinderAC.visible = this.cylinderBC.visible = this.cylinderCD.visible = this.cylinderCF.visible = false;
+					 this.cylinderCA.visible = this.cylinderCB.visible = this.cylinderCD.visible = this.cylinderCF.visible = false;
 				if ( !markerVisible["D"] )
-					 this.cylinderAD.visible = this.cylinderBD.visible = this.cylinderВD.visible = this.cylinderDF.visible = false;
+					 this.cylinderDA.visible = this.cylinderDB.visible = this.cylinderDC.visible = this.cylinderDF.visible = false;
 				if ( !markerVisible["F"] )
-					 this.cylinderAF.visible = this.cylinderBF.visible = this.cylinderFC.visible = this.cylinderDF.visible = false;
+					 this.cylinderFA.visible = this.cylinderFB.visible = this.cylinderFC.visible = this.cylinderFD.visible = false;
 				 }
 });
