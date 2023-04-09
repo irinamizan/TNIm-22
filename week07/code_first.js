@@ -68,7 +68,7 @@ function animate() {
 		camera.position.x = radius * Math.cos(angle) + 2;
 		camera.position.y = radius * Math.sin(angle);
 		angle += Math.PI/180;
-		
+
 		delta+=0.1;
 		planegeometry.vertices[0].z=-25+Math.sin(delta)*50;
 		planegeometry.verticesNeedUpdate=true;
