@@ -14,16 +14,21 @@ const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
-camera.position.z = 5;
+camera.position.z = 7;
 camera.position.x = 2;
 
 renderer.setClearColor (0xFFFFFF);
 renderer.clear();
 
+let angle = 0, radius = 4;
+
 function animate() {
-	requestAnimationFrame( animate );
-	renderer.render( scene, camera );
-	cube.rotation.x += 0.01;
-	cube.rotation.y += 0.01;
+		requestAnimationFrame( animate );
+		renderer.render( scene, camera );
+		cube.rotation.x += 0.01;
+		cube.rotation.y += 0.01;
+		camera.position.x = radius * Math.cos(angle) + 2;
+		camera.position.y = radius * Math.sin(angle);
+		angle += Math.PI/180;
 }
 animate();
