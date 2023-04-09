@@ -27,17 +27,22 @@ scene.add(lightOne);
 var lightTwo=new THREE.PointLight(0xffffff, 0.5);
 scene.add(lightTwo);
 
+lightTwo.position.set(25, 0, -25)
+
 camera.position.z = 7;
 camera.position.x = 2;
 
 renderer.setClearColor (0x555555);
 renderer.clear();
 
-let angle = 0, radius = 4;
+let angle = 0, radius = 7;
 
 function animate() {
 		requestAnimationFrame( animate );
 		renderer.render( scene, camera );
+		lightTwo.position.x = radius * Math.cos(angle) + 5;
+		lightTwo.position.y = radius * Math.sin(angle);
+		
 		cube.rotation.x += 0.01;
 		cube.rotation.y += 0.01;
 		camera.position.x = radius * Math.cos(angle) + 2;
