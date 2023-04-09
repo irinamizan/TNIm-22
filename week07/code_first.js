@@ -15,6 +15,7 @@ const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
 camera.position.z = 5;
+camera.position.x = 2;
 
 renderer.setClearColor (0xFFFFFF);
 renderer.clear();
