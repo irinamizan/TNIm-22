@@ -16,14 +16,14 @@ AFRAME.registerComponent('registerevents', {
 
 AFRAME.registerComponent('run', {
  		init: function() {
-			this.A = document.querySelector("#A");
-			this.B = document.querySelector("#B");
-			this.C = document.querySelector("#C");
+			 this.A = document.querySelector("#A");
+			 this.B = document.querySelector("#B");
+			 this.C = document.querySelector("#C");
 			this.D = document.querySelector("#C");
 			this.F = document.querySelector("#C");
-			this.p0 = new THREE.Vector3();
-			this.p1 = new THREE.Vector3();
-			this.p2 = new THREE.Vector3();
+			 this.p0 = new THREE.Vector3();
+			 this.p1 = new THREE.Vector3();
+			 this.p2 = new THREE.Vector3();
 			this.p3 = new THREE.Vector3();
 			this.p4 = new THREE.Vector3();
 
@@ -42,19 +42,19 @@ AFRAME.registerComponent('run', {
 			 this.lineBC.add( this.cylinderBC );
 			 this.cylinderBC.visible = false;
 
-			 this.cylinderCD = new THREE.Mesh( geometry, material );
-			 this.lineCD = document.querySelector('#lineAC').object3D;
+			this.cylinderCD = new THREE.Mesh( geometry, material );
+			 this.lineCD = document.querySelector('#lineCD').object3D;
 			 this.lineCD.add( this.cylinderCD );
 			 this.cylinderCD.visible = false;
 
-			 this.cylinderDF = new THREE.Mesh( geometry, material );
-			 this.lineDF = document.querySelector('#lineAC').object3D;
-			 this.lineDF.add( this.cylinderAC );
+			this.cylinderDF = new THREE.Mesh( geometry, material );
+			 this.lineDF = document.querySelector('#lineDF').object3D;
+			 this.lineDF.add( this.cylinderDF );
 			 this.cylinderDF.visible = false;
 
-			 this.cylinderFA = new THREE.Mesh( geometry, material );
-			 this.lineFA = document.querySelector('#lineAC').object3D;
-			 this.lineFA.add( this.cylinderAC );
+			this.cylinderFA = new THREE.Mesh( geometry, material );
+			 this.lineFA = document.querySelector('#lineFA').object3D;
+			 this.lineFA.add( this.cylinderFA );
 			 this.cylinderFA.visible = false;
 		 },
 		 tick: function (time, deltaTime) {
@@ -106,7 +106,7 @@ AFRAME.registerComponent('run', {
 				if ( !markerVisible["C"] )
 					 this.cylinderAC.visible = this.cylinderBC.visible = this.cylinderCD.visible = this.cylinderCF.visible = false;
 				if ( !markerVisible["D"] )
-					 this.cylinderAD.visible = this.cylinderBD.visible = this.cylinderCD.visible = this.cylinderDF.visible = false;
+					 this.cylinderAD.visible = this.cylinderBD.visible = this.cylinderВD.visible = this.cylinderDF.visible = false;
 				if ( !markerVisible["F"] )
 					 this.cylinderAF.visible = this.cylinderBF.visible = this.cylinderFC.visible = this.cylinderDF.visible = false;
 				 }
