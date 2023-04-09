@@ -100,14 +100,14 @@ AFRAME.registerComponent('run', {
 					 this.cylinderFA.visible = true;
 				 }
 				if ( !markerVisible["A"] )
-					 this.cylinderAB.visible = this.cylinderAC.visible = this.cylinderAD.visible = this.cylinderAF.visible = false;
+					 this.cylinderAB.visible = this.cylinderAF.visible = false;
 				if ( !markerVisible["B"] )
-					 this.cylinderBA.visible = this.cylinderBC.visible = this.cylinderBD.visible = this.cylinderBF.visible = false;
+					 this.cylinderBA.visible = this.cylinderBC.visible = false;
 				if ( !markerVisible["C"] )
-					 this.cylinderCA.visible = this.cylinderCB.visible = this.cylinderCD.visible = this.cylinderCF.visible = false;
+					 this.cylinderCB.visible = this.cylinderCD.visible = false;
 				if ( !markerVisible["D"] )
-					 this.cylinderDA.visible = this.cylinderDB.visible = this.cylinderDC.visible = this.cylinderDF.visible = false;
+					 this.cylinderDC.visible = this.cylinderDF.visible = false;
 				if ( !markerVisible["F"] )
-					 this.cylinderFA.visible = this.cylinderFB.visible = this.cylinderFC.visible = this.cylinderFD.visible = false;
+					 this.cylinderFA.visible = this.cylinderFD.visible = false;
 				 }
 });
