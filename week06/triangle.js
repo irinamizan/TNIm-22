@@ -1,4 +1,4 @@
-﻿let markerVisible = { A: false, B: false, C: false, D: false, F: false};
+let markerVisible = { A: false, B: false, C: false, D: false, F: false};
 					
 AFRAME.registerComponent('registerevents', {
  		init: function () {
@@ -42,19 +42,24 @@ AFRAME.registerComponent('run', {
 			 this.lineBC.add( this.cylinderBC );
 			 this.cylinderBC.visible = false;
 
+			 this.cylinderCD = new THREE.Mesh( geometry, material );
+			 this.lineAC = document.querySelector('#lineAC').object3D;
+			 this.lineAC.add( this.cylinderAC );
+			 this.cylinderAC.visible = false;
+
 			this.cylinderCD = new THREE.Mesh( geometry, material );
-			 this.lineCD = document.querySelector('#lineCD').object3D;
+			 this.lineCD = document.querySelector('#lineAC').object3D;
 			 this.lineCD.add( this.cylinderCD );
 			 this.cylinderCD.visible = false;
 
 			this.cylinderDF = new THREE.Mesh( geometry, material );
-			 this.lineDF = document.querySelector('#lineDF').object3D;
-			 this.lineDF.add( this.cylinderDF );
+			 this.lineDF = document.querySelector('#lineAC').object3D;
+			 this.lineDF.add( this.cylinderAC );
 			 this.cylinderDF.visible = false;
 
 			this.cylinderFA = new THREE.Mesh( geometry, material );
-			 this.lineFA = document.querySelector('#lineFA').object3D;
-			 this.lineFA.add( this.cylinderFA );
+			 this.lineFA = document.querySelector('#lineAC').object3D;
+			 this.lineFA.add( this.cylinderAC );
 			 this.cylinderFA.visible = false;
 		 },
 		 tick: function (time, deltaTime) {
@@ -100,14 +105,15 @@ AFRAME.registerComponent('run', {
 					 this.cylinderFA.visible = true;
 				 }
 				if ( !markerVisible["A"] )
-					 this.cylinderAB.visible = this.cylinderAF.visible = false;
+					 this.cylinderAB.visible = this.cylinderAC.visible = false;
 				if ( !markerVisible["B"] )
-					 this.cylinderBA.visible = this.cylinderBC.visible = false;
+					 this.cylinderAB.visible = this.cylinderBC.visible = false;
 				if ( !markerVisible["C"] )
-					 this.cylinderCB.visible = this.cylinderCD.visible = false;
+					 this.cylinderAC.visible = this.cylinderBC.visible = false;
+
 				if ( !markerVisible["D"] )
-					 this.cylinderDC.visible = this.cylinderDF.visible = false;
+					 this.cylinderAC.visible = this.cylinderBC.visible = false;
 				if ( !markerVisible["F"] )
-					 this.cylinderFA.visible = this.cylinderFD.visible = false;
+					 this.cylinderAC.visible = this.cylinderBC.visible = false;
 				 }
 });
