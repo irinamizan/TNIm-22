@@ -63,8 +63,8 @@ function animate() {
 		lightTwo.position.x = radius * Math.cos(angle) + 5;
 		lightTwo.position.y = radius * Math.sin(angle);
 		
-		box.rotation.x += 0.01;
-		box.rotation.y += 0.01;
+		boxmesh.rotation.x += 0.01;
+		boxmesh.rotation.y += 0.01;
 		camera.position.x = radius * Math.cos(angle) + 2;
 		camera.position.y = radius * Math.sin(angle);
 		angle += Math.PI/180;
