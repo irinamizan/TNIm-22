@@ -19,8 +19,8 @@ AFRAME.registerComponent('run', {
 			 this.A = document.querySelector("#A");
 			 this.B = document.querySelector("#B");
 			 this.C = document.querySelector("#C");
-			this.D = document.querySelector("#C");
-			this.F = document.querySelector("#C");
+			this.D = document.querySelector("#D");
+			this.F = document.querySelector("#F");
 			 this.p0 = new THREE.Vector3();
 			 this.p1 = new THREE.Vector3();
 			 this.p2 = new THREE.Vector3();
@@ -29,8 +29,8 @@ AFRAME.registerComponent('run', {
 
 			 let material = new THREE.MeshLambertMaterial(	{color:0xFF0000});
 			 let geometry=new THREE.CylinderGeometry( 0.05, 0.05, 1, 12);
-			 geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, 0.5, 0 ) );
-			 geometry.applyMatrix( new THREE.Matrix4().makeRotationX(THREE.MathUtils.degToRad( 90 ) ) );
+			 geometry.applyMatrix4( new THREE.Matrix4().makeTranslation(0, 0.5, 0 ) );
+			 geometry.applyMatrix4( new THREE.Matrix4().makeRotationX(THREE.MathUtils.degToRad( 90 ) ) );
 
 			 this.cylinderAB = new THREE.Mesh( geometry, material );
 			 this.lineAB = document.querySelector('#lineAB').object3D;
@@ -43,25 +43,21 @@ AFRAME.registerComponent('run', {
 			 this.cylinderBC.visible = false;
 
 			 this.cylinderCD = new THREE.Mesh( geometry, material );
-			 this.lineAC = document.querySelector('#lineAC').object3D;
-			 this.lineAC.add( this.cylinderAC );
-			 this.cylinderAC.visible = false;
-
-			this.cylinderCD = new THREE.Mesh( geometry, material );
-			 this.lineCD = document.querySelector('#lineAC').object3D;
+			 this.lineCD = document.querySelector('#lineCD').object3D;
 			 this.lineCD.add( this.cylinderCD );
 			 this.cylinderCD.visible = false;
 
 			this.cylinderDF = new THREE.Mesh( geometry, material );
-			 this.lineDF = document.querySelector('#lineAC').object3D;
-			 this.lineDF.add( this.cylinderAC );
+			 this.lineDF = document.querySelector('#lineDF').object3D;
+			 this.lineDF.add( this.cylinderDF );
 			 this.cylinderDF.visible = false;
 
 			this.cylinderFA = new THREE.Mesh( geometry, material );
-			 this.lineFA = document.querySelector('#lineAC').object3D;
-			 this.lineFA.add( this.cylinderAC );
+			 this.lineFA = document.querySelector('#lineFA').object3D;
+			 this.lineFA.add( this.cylinderFA );
 			 this.cylinderFA.visible = false;
 		 },
+
 		 tick: function (time, deltaTime) {
 				 if ( markerVisible["A"] && markerVisible["B"] ) {
 					 this.A.object3D.getWorldPosition(this.p0);
@@ -104,14 +100,15 @@ AFRAME.registerComponent('run', {
 					 this.cylinderFA.visible = true;
 				 }
 				if ( !markerVisible["A"] )
-					 this.cylinderAB.visible = this.cylinderAC.visible = this.cylinderAD.visible = this.cylinderAF.visible = false;
+					 this.cylinderAB.visible = this.cylinderFA.visible = false;
 				if ( !markerVisible["B"] )
-					 this.cylinderBA.visible = this.cylinderBC.visible = this.cylinderBD.visible = this.cylinderBF.visible = false;
+					 this.cylinderAB.visible = this.cylinderBC.visible = false;
 				if ( !markerVisible["C"] )
-					 this.cylinderCA.visible = this.cylinderCB.visible = this.cylinderCD.visible = this.cylinderCF.visible = false;
+					 this.cylinderBC.visible = this.cylinderCD.visible = false;
 				if ( !markerVisible["D"] )
-					 this.cylinderDA.visible = this.cylinderDB.visible = this.cylinderDC.visible = this.cylinderDF.visible = false;
+					 this.cylinderCD.visible = this.cylinderDF.visible = false;
 				if ( !markerVisible["F"] )
-					 this.cylinderFA.visible = this.cylinderFB.visible = this.cylinderFC.visible = this.cylinderFD.visible = false;
-				 }
+					 this.cylinderFA.visible = this.cylinderDF.visible = false;
+		 }
+
 });
