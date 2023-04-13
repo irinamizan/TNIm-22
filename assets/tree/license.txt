@@ -1,11 +1,11 @@
 Model Information:
-* title:	Forest Tree scan
-* source:	https://sketchfab.com/3d-models/forest-tree-scan-8b65713552744fe689a184ebbd2a0ebc
-* author:	Bogdan Georgescu (https://sketchfab.com/bondaru)
+* title:	Birch Tree - Low Poly
+* source:	https://sketchfab.com/3d-models/birch-tree-low-poly-1d7f142738604975bbf1b03338a024dd
+* author:	Alan Zimmerman (https://sketchfab.com/nenjo)
 
 Model License:
-* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
-* requirements:	Author must be credited. Commercial use is allowed.
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Forest Tree scan" (https://sketchfab.com/3d-models/forest-tree-scan-8b65713552744fe689a184ebbd2a0ebc) by Bogdan Georgescu (https://sketchfab.com/bondaru) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Birch Tree - Low Poly" (https://sketchfab.com/3d-models/birch-tree-low-poly-1d7f142738604975bbf1b03338a024dd) by Alan Zimmerman (https://sketchfab.com/nenjo) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
