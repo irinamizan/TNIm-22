@@ -55,12 +55,6 @@ circlemesh.position.set(2, 0, -6);
 circlemesh.rotation.set(0, 0.5, 0);
 scene.add(circlemesh);
 
-const planegeometry=new THREE.PlaneGeometry(10, 10);
-const planematerial=new THREE.MeshPhongMaterial({color: 0xF3FFE2,specular: 0xFF0000,shininess: 50});
-const planemesh=new THREE.Mesh(planegeometry, planematerial);
-planemesh.position.set(0, -20, -100);
-scene.add(planemesh);
-
 camera.position.z = 7;
 camera.position.x = 2;
 
