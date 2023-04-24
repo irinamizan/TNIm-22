@@ -9,7 +9,21 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+var loader = new THREE.TextureLoader();
+
 const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
+/*
+const boxmaterials = [
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube1.png'  } ),
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube2.png'  } ),
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube3.png'  } ),
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube4.png'  } ),
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube5.png'  } ),
+				new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube6.png'  } )
+				
+];
+*/
+
 const boxmaterials = [
 				new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 				new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
@@ -41,7 +55,7 @@ lightTwo.position.set(25, 0, -25)
 var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 scene.add(lightThree);
 
-const texture = new THREE.TextureLoader().load(  '/assets/plants.jpg'  );
+const texture = loader.load(  '/assets/plants.jpg'  );
 
 var planegeometry=new THREE.PlaneGeometry(10, 10);
 var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
@@ -50,7 +64,7 @@ planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10);
 scene.add(planemesh);
 
-const beach = new THREE.TextureLoader().load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
+const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
 cylmaterial.map = beach;
 
 cube.scale.set(3,3,3);
