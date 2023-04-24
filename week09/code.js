@@ -19,7 +19,7 @@ const boxmaterials = [
 				new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } )
 ];
 
-const cube = new THREE.Mesh( boxgeometry, boxmaterial );
+const cube = new THREE.Mesh( boxgeometry, boxmaterials );
 scene.add( cube );
 
 const cylgeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
@@ -69,9 +69,9 @@ function animate() {
 	renderer.render( scene, camera );
 	lightTwo.position.x = radius * Math.cos(angle) + 5;
 	lightTwo.position.y = radius * Math.sin(angle);
-/*
 	cube.rotation.x += 0.01;
 	cube.rotation.y += 0.01;
+/*	
 	camera.position.x = radius * Math.cos(angle) + 2;
 	camera.position.y = radius * Math.sin(angle);
 */
