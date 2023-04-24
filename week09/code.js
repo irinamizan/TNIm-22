@@ -55,7 +55,9 @@ lightTwo.position.set(25, 0, -25)
 var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 scene.add(lightThree);
 
-const texture = loader.load(  '/assets/plants.jpg'  );
+//const texture = loader.load(  '/assets/plants.jpg'  );
+const video = document.getElementById( 'video' );
+const texture = new THREE.VideoTexture( video );
 
 var planegeometry=new THREE.PlaneGeometry(10, 10);
 var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
