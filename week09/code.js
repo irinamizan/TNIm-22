@@ -20,7 +20,7 @@ function init()
 		
 		const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 		
-		const boxmaterials = [
+		/*const boxmaterials = [
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube1.png'  } ),
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube2.png'  } ),
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube3.png'  } ),
@@ -29,9 +29,9 @@ function init()
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube6.png'  } )
 						
 		];
+		*/
 		
-		
-		/*const boxmaterials = [
+		const boxmaterials = [
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
@@ -39,7 +39,7 @@ function init()
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } )
 		];
-		*/
+		
 		
 		cube = new THREE.Mesh( boxgeometry, boxmaterials );
 		scene.add( cube );
