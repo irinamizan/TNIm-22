@@ -66,7 +66,7 @@ planemesh.position.set(70, -20, -100);
 planemesh.scale.set(10, 10, 10);
 scene.add(planemesh);
 
-const beach = loader.load(  '../assets/360-degree-beach-panorama-1217568.jpg'  );
+const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
 cylmaterial.map = beach;
 
 cube.scale.set(3,3,3);
