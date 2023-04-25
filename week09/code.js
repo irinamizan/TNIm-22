@@ -26,7 +26,7 @@ function init()
 						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube3.png' ) } ),
 						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube4.png' ) } ),
 						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube5.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube6.png' ) } )
+						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube6.png' ) } ),
 						
 		];
 		/*		
@@ -65,7 +65,7 @@ function init()
 		//const texture = loader.load(  '/assets/plants.jpg'  );
 		const video = document.getElementById( 'video' );
 		video.play();
-		const texture = new THREE.VideoTexture( video );
+		const texture = new THREE.VideoTexture( 'video' );
 		
 
 		var planegeometry=new THREE.PlaneGeometry(16, 9);
@@ -75,9 +75,9 @@ function init()
 		planemesh.scale.set(10, 10, 10);
 		scene.add(planemesh);
 		
-		const video2 = document.getElementById( 'video' );
+		const video2 = document.getElementById( 'video2' );
 		video2.play();
-		const texture2 = new THREE.VideoTexture( video2 );
+		const texture2 = new THREE.VideoTexture( 'video2' );
 
 		//const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
 		//cylmaterial.map = beach;
