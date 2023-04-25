@@ -19,7 +19,7 @@ function init()
 		var loader = new THREE.TextureLoader();
 		
 		const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
-		/*
+		
 		const boxmaterials = [
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube1.png'  } ),
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube2.png'  } ),
@@ -29,9 +29,9 @@ function init()
 						new THREE.MeshBasicMaterial( { color: loader.load(  '/assets/cube6.png'  } )
 						
 		];
-		*/
 		
-		const boxmaterials = [
+		
+		/*const boxmaterials = [
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
@@ -39,6 +39,7 @@ function init()
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } ),
 						new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff } )
 		];
+		*/
 		
 		cube = new THREE.Mesh( boxgeometry, boxmaterials );
 		scene.add( cube );
@@ -67,6 +68,7 @@ function init()
 		video.play();
 		const texture = new THREE.VideoTexture( video );
 		
+
 		var planegeometry=new THREE.PlaneGeometry(16, 9);
 		var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
 		var planemesh=new THREE.Mesh(planegeometry, planematerial);
@@ -74,8 +76,13 @@ function init()
 		planemesh.scale.set(10, 10, 10);
 		scene.add(planemesh);
 		
-		const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
-		cylmaterial.map = beach;
+		const video2 = document.getElementById( 'video' );
+		video2.play();
+		const texture2 = new THREE.VideoTexture( video2 );
+
+		//const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
+		//cylmaterial.map = beach;
+		cylmaterial.map = texture2;
 		
 		cube.scale.set(3,3,3);
 		cube.position.x = cube.position.x - 1;
@@ -90,12 +97,22 @@ function init()
 		
 		modelloader.load( '/assets/birch_tree_-_low_poly.glb', function ( gltf ) {
 					scene.add(gltf.scene);
-					gltf.scene.position.set(-2,0,0);
+					gltf.scene.position.set(-5,2,0);
+					gltf.scene.scale.set(2,2,2);
 		}, function ( xhr ) {
 				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 		}, function ( error ) {
 				console.error(error);
+		} );
 
+		modelloader.load( '/assets/tree/scene.gltf', function ( gltf ) {
+					scene.add(gltf.scene);
+					gltf.scene.position.set(-5,-2,0);
+					gltf.scene.scale.set(0.01,0.01,0.01);
+		}, function ( xhr ) {
+				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		}, function ( error ) {
+				console.error(error);
 		} );
 
 }
