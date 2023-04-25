@@ -65,7 +65,7 @@ function init()
 		//const texture = loader.load(  '/assets/plants.jpg'  );
 		const video = document.getElementById( 'video' );
 		video.play();
-		const texture = new THREE.VideoTexture( 'video' );
+		const texture = new THREE.VideoTexture( video );
 		
 
 		var planegeometry=new THREE.PlaneGeometry(16, 9);
@@ -77,7 +77,7 @@ function init()
 		
 		const video2 = document.getElementById( 'video2' );
 		video2.play();
-		const texture2 = new THREE.VideoTexture( 'video2' );
+		const texture2 = new THREE.VideoTexture( video2 );
 
 		//const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
 		//cylmaterial.map = beach;
