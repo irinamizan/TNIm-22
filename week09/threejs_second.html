@@ -5,14 +5,30 @@
 		<title>My second three.js app</title>
 		<style>
 			body { margin: 0; }
+			button#press {
+				position:	absolutre;
+				top: 50%; 
+				left: 50%;
+				transform: translateX(-50%);
+			}
 		</style>
+				<script type="importmap">
+				  {
+				    "imports": {
+				      "three": "https://unpkg.com/three/build/three.module.js",
+				      "three/addons/": "https://unpkg.com/three/examples/jsm/"
+				    }
+				  }
+</script>
 		<script type="module" src="code.js">
 		</script>
 	</head>
 	<body>
 		<!--<script src="../three/three.js"></script>-->
-		<video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
+		<video id="video" loop crossOrigin="anonymous" playsinline style="display:none" muted>
 				<source src="/assets/birds.mp4">
 		</video>
+
+		<button id="press">Натисни на мене</button>
 	</body>
 </html>
