@@ -62,7 +62,7 @@ function init()
 		var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 		scene.add(lightThree);
 		
-		//const texture = loader.load(  '../assets/plants.jpg'  );
+		const texture = loader.load(  '../assets/plants.jpg'  );
 		const video = document.getElementById( 'video' );
 		video.play();
 		const texture = new THREE.VideoTexture( video );
@@ -79,8 +79,8 @@ function init()
 		video2.play();
 		const texture2 = new THREE.VideoTexture( video2 );
 
-		//const beach = loader.load(  '../assets/360-degree-beach-panorama-1217568.jpg'  );
-		//cylmaterial.map = beach;
+		const beach = loader.load(  '../assets/360-degree-beach-panorama-1217568.jpg'  );
+		cylmaterial.map = beach;
 		cylmaterial.map = texture2;
 		
 		cube.scale.set(3,3,3);
@@ -94,7 +94,7 @@ function init()
 
 		const modelloader = new GLTFLoader();
 		
-		modelloader.load( '/assets/birch_tree_-_low_poly.glb', function ( gltf ) {
+		modelloader.load( '../assets/birch_tree_-_low_poly.glb', function ( gltf ) {
 					scene.add(gltf.scene);
 					gltf.scene.position.set(-5,2,0);
 					gltf.scene.scale.set(2,2,2);
