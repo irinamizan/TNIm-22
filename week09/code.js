@@ -62,7 +62,7 @@ function init()
 		var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 		scene.add(lightThree);
 		
-		const texture = loader.load(  '../assets/birds.mp4'  );
+		//const texture = loader.load(  '../assets/birds.mp4'  );
 		const video = document.getElementById( 'video' );
 		video.play();
 		const texture = new THREE.VideoTexture( video );
@@ -78,9 +78,9 @@ function init()
 		const video2 = document.getElementById( 'video2' );
 		video2.play();
 		const texture2 = new THREE.VideoTexture( video2 );
-		const beach = loader.load(  '../assets/videoplayback.mp4'  );
-		cylmaterial.map = beach;
-		cylmaterial.map = texture2;
+		//const beach = loader.load(  '../assets/videoplayback.mp4'  );
+		//cylmaterial.map = beach;
+		//cylmaterial.map = texture2;
 		
 		cube.scale.set(3,3,3);
 		cube.position.x = cube.position.x - 1;
