@@ -21,12 +21,12 @@ function init()
 		const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
 		
 		const boxmaterials = [
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube1.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube2.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube3.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube4.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube5.png' ) } ),
-						new THREE.MeshBasicMaterial( { map: loader.load(  '/assets/cube6.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube1.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube2.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube3.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube4.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube5.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube6.png' ) } ),
 						
 		];
 		/*		
