@@ -62,7 +62,7 @@ function init()
 		var lightThree = new THREE.HemisphereLight(0xfffff, 0x080820, 1);
 		scene.add(lightThree);
 		
-		//const texture = loader.load(  '/assets/plants.jpg'  );
+		//const texture = loader.load(  '../assets/plants.jpg'  );
 		const video = document.getElementById( 'video' );
 		video.play();
 		const texture = new THREE.VideoTexture( video );
@@ -79,7 +79,7 @@ function init()
 		video2.play();
 		const texture2 = new THREE.VideoTexture( video2 );
 
-		//const beach = loader.load(  '/assets/360-degree-beach-panorama-1217568.jpg'  );
+		//const beach = loader.load(  '../assets/360-degree-beach-panorama-1217568.jpg'  );
 		//cylmaterial.map = beach;
 		cylmaterial.map = texture2;
 		
