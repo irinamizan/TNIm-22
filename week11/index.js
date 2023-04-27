@@ -1,4 +1,3 @@
-import * as THREE from "../three/three.module.js";
 
 function main() {
     const scene = new THREE.Scene();
