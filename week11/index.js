@@ -3,7 +3,7 @@ import * as THREE from "../three/three.module.js";
 function main() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(80, 2, 0.1, 50000);
-    const renderer = new THREE.WebGLRenderer({antialias: true; alpha: true});
+    const renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 
 
     renderer.setSize( window.innerWidth, window.innerHeight );
