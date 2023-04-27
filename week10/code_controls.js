@@ -37,7 +37,7 @@ function init()
 			{
 				controls = new FlyControls( camera, renderer.domElement );
 				controls.autoForward = true;
-				сontrols.movementSpeed = 0.5;
+				сontrols.movementSpeed = 0.05;
 				сontrols.rollSpeed = 0.05;
 			}
 
