@@ -140,7 +140,7 @@ function init()
 		modelloader.load( '/assets/tree/scene.gltf', function ( gltf ) {
 					scene.add(gltf.scene);
 					gltf.scene.position.set(-5,-2,0);
-					gltf.scene.scale.set(0.001,0.001,0.001);
+					gltf.scene.scale.set(0.01,0.01,0.01);
 		}, function ( xhr ) {
 				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 		}, function ( error ) {
