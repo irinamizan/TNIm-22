@@ -1,21 +1,10 @@
-var scene, camera, renderer, clock, deltaTime, totalTime;
+var scene, camera, renderer;
 
 var arToolkitSource, arToolkitContext;
 
-var markerRoot1, markerRoot2;
+window.addEventListener("DOMContentLoaded", () => {
 
-var mesh1;
-
-window.addEventListener("DOMContentLoaded", (event) => {
-  initialize();
-  animate();
-});
-
-
-
-function initialize()
-{
-	scene = new THREE.Scene();
+ 	scene = new THREE.Scene();
 
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.5 );
 	scene.add( ambientLight );
@@ -27,56 +16,64 @@ function initialize()
 		antialias : true,
 		alpha: true
 	});
-	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
-	renderer.setSize( 640, 480 );
-	renderer.domElement.style.position = 'absolute'
-	renderer.domElement.style.top = '0px'
-	renderer.domElement.style.left = '0px'
-	document.body.appendChild( renderer.domElement );
 
-	clock = new THREE.Clock();
-	deltaTime = 0;
-	totalTime = 0;
+	renderer.setSize( window.innerWidth, window.innerHeight);
+	document.body.appendChild( renderer.domElement );
 	
 	////////////////////////////////////////////////////////////
 	// setup arToolkitSource
 	////////////////////////////////////////////////////////////
 
 	arToolkitSource = new THREEx.ArToolkitSource({
-		sourceType : 'webcam',
+			// type of source - ['webcam', 'image', 'video']
+		sourceType: "webcam",
+		  // url of the source - valid if sourceType = image|video
+		sourceUrl: null,
+
+		  // resolution of at which we initialize the source image
+		sourceWidth: 1280,
+		sourceHeight: 720,
+		  // resolution displayed for the source
+		displayWidth: 1280,
+		displayHeight: 720
 	});
 
-	function onResize()
-	{
-		arToolkitSource.onResizeElement()	
-		arToolkitSource.copyElementSizeTo(renderer.domElement)	
-		if ( arToolkitContext.arController !== null )
-		{
-			arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas)	
-		}	
-	}
-
-	arToolkitSource.init(function onReady(){
-		onResize()
-	});
+	arToolkitSource.init(onResize);
 	
 	// handle resize event
-	window.addEventListener('resize', function(){
-		onResize()
-	});
-	
+	window.addEventListener('resize', onResize)
+		
 	////////////////////////////////////////////////////////////
 	// setup arToolkitContext
 	////////////////////////////////////////////////////////////	
 
 	// create atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
-		cameraParametersUrl: '../ar/camera_para.dat',
+		// debug - true if one should display artoolkit debug canvas, false otherwise
+  		debug: false,
+  		// url of the camera parameters
+  		cameraParametersUrl: '../ar/camera_para.dat',
+    	// the mode of detection - ['color', 'color_and_matrix', 'mono', 'mono_and_matrix']
 		detectionMode: 'mono'
+		// type of matrix code - valid iif detectionMode end with 'matrix' - [3x3, 3x3_HAMMING63, 3x3_PARITY65, 4x4, 4x4_BCH_13_9_3, 4x4_BCH_13_5_5]
+   		//matrixCodeType: '3x3',
+   		// Pattern ratio for custom markers
+   		//patternRatio: 0.5
+   		// Labeling mode for markers - ['black_region', 'white_region']
+   		// black_region: Black bordered markers on a white background, white_region: White bordered markers on a black background
+  		//labelingMode: 'black_region',
+  		// tune the maximum rate of pose detection in the source image
+   		//maxDetectionRate: 60,
+   		// resolution of at which we detect pose in the source image
+   		canvasWidth: 1280,
+   		canvasHeight: 720,
+    	// enable image smoothing or not for canvas copy - default to true
+ 		// https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled
+   		 imageSmoothingEnabled : true,
 	});
 	
 	// copy projection matrix to camera when initialization complete
-	arToolkitContext.init( function onCompleted(){
+	arToolkitContext.init( () => {
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
 	});
 
@@ -88,44 +85,42 @@ function initialize()
 	let texture = loader.load( '../assets/plants.jpg' );
 		
 	let patternArray = ["pattern-letterA.patt", "pattern-letterB.patt", "pattern-letterC.patt", "pattern-letterD.patt", "pattern-letterF.patt", "pattern-letterG.patt", "pattern-kanji.patt", "pattern-hiro.patt"];
-	let colorArray   = [0xff0000, 0xff8800, 0xffff00, 0x00cc00, 0x0000ff, 0xffffff, 0xcc00ff, 0xcccccc];
-	for (let i = 0; i < 7; i++)
+		
+	for (let i = 0; i < patternArray.lenght; i++)
 	{
 		let markerRoot = new THREE.Group();
 		scene.add(markerRoot);
 		let markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
-			type : 'pattern', patternUrl : "../assets/" + patternArray[i]
+			type : 'pattern', 
+			patternUrl : "../assets/" + patternArray[i]
 		});
 	
 		let mesh = new THREE.Mesh( 
-			new THREE.BoxGeometry(1.25,1.25,1.25), 
-			new THREE.MeshBasicMaterial({color:colorArray[i], map:texture, transparent:true, opacity:0.5}) 
+			new THREE.BoxGeometry(1,1,1), 
+			new THREE.MeshBasicMaterial({color:Math.random()*0xffffff, map:texture, transparent:true, opacity:0.5}) 
 		);
-		mesh.position.y = 1.25/2;
+		mesh.position.y = 1/2;
 		markerRoot.add( mesh );
 	}
-}
+
+  requestAnimationFrame(animate);
+});
 
 
-function update()
-{
-	// update artoolkit on every frame
-	if ( arToolkitSource.ready !== false )
-		arToolkitContext.update( arToolkitSource.domElement );
-}
-
-
-function render()
-{
-	renderer.render( scene, camera );
-}
+function onResize()
+	{
+		arToolkitSource.onResizeElement();
+		arToolkitSource.copyElementSizeTo(renderer.domElement);
+		if ( arToolkitContext.arController !== null )
+			arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
+	}
 
 
 function animate()
 {
 	requestAnimationFrame(animate);
-	deltaTime = clock.getDelta();
-	totalTime += deltaTime;
-	update();
-	render();
+	// update artoolkit on every frame
+	if ( arToolkitSource.ready !== false )
+		arToolkitContext.update( arToolkitSource.domElement );
+		renderer.render( scene, camera );
 }
