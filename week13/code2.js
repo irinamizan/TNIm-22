@@ -82,28 +82,60 @@ window.addEventListener("DOMContentLoaded", () => {
 	////////////////////////////////////////////////////////////
 
 	let loader = new THREE.TextureLoader();
-	let texture = loader.load( '../assets/plants.jpg' );
-		
-	let patternArray = ["pattern-letterA.patt", "pattern-letterB.patt", "pattern-letterC.patt", "pattern-letterD.patt", "pattern-letterF.patt", "pattern-letterG.patt", "pattern-kanji.patt", "pattern-hiro.patt"];
-		
-	for (let i = 0; i < patternArray.lenght; i++)
-	{
-		let markerRoot = new THREE.Group();
-		scene.add(markerRoot);
-		let markerControls = new THREEx.ArMarkerControls(arToolkitContext, markerRoot, {
-			type : 'pattern', 
-			patternUrl : "../assets/" + patternArray[i]
-		});
 	
-		let mesh = new THREE.Mesh( 
-			new THREE.BoxGeometry(1,1,1), 
-			new THREE.MeshBasicMaterial({color:Math.random()*0xffffff, map:texture, transparent:true, opacity:0.5}) 
-		);
-		mesh.position.y = 1/2;
-		markerRoot.add( mesh );
-	}
+	let markerRootHiro = new THREE.Group();
+	scene.add(markerRootHiro);
 
-  requestAnimationFrame(animate);
+	let markerRootKanji = new THREE.Group();
+	scene.add(markerRootKanji);
+
+	let markerControlsHiro = new THREEx.ArMarkerControls(arToolkitContext, markerRootHiro, {
+			type : 'pattern', patternUrl : "../assets/pattern-hiro.patt"
+	});
+		
+	let markerControlsKanji = new THREEx.ArMarkerControls(arToolkitContext, markerRootKanji, {
+			type : 'pattern', patternUrl : "../assets/pattern-Kanji.patt"
+	});
+
+		const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
+
+		const boxmaterials = [
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube1.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube2.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube3.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube4.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube5.png' ) } ),
+						new THREE.MeshBasicMaterial( { map: loader.load(  '../assets/cube6.png' ) } ),
+						
+		];
+
+		const cube = new THREE.Mesh( boxgeometry, boxmaterials );
+
+		markerRootHiro.add(cube);
+
+		const cylgeometry = new THREE.CylinderGeometry( 0.5, 0.5, 2.0, 32 );
+		const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );
+		const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
+		markerRootHiro.add(cylinder);
+		cylinder.position.z=-2.5;
+		cylinder.position.x=5.0;
+
+		const video = document.getElementById( 'video' );
+		video.play();
+		const texture = new THREE.VideoTexture( video );
+		var planegeometry=new THREE.PlaneGeometry(1.6, 0.9);
+		var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
+		var planemesh=new THREE.Mesh(planegeometry, planematerial);
+		planemesh.position.set(-Math.PI/2, 0, 0);
+		//planemesh.scale.set(10, 10, 10);
+
+		markerRootKanji.add(planemesh);
+
+		//markerRootKanji.add( ?? );
+
+
+
+	 requestAnimationFrame(animate);
 });
 
 
