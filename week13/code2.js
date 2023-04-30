@@ -52,9 +52,9 @@ window.addEventListener("DOMContentLoaded", () => {
 		// debug - true if one should display artoolkit debug canvas, false otherwise
   		debug: false,
   		// url of the camera parameters
-  		cameraParametersUrl: '../ar/camera_para.dat',
+  		cameraParametersUrl: "../ar/camera_para.dat",
     	// the mode of detection - ['color', 'color_and_matrix', 'mono', 'mono_and_matrix']
-		detectionMode: 'mono'
+		detectionMode: "mono",
 		// type of matrix code - valid iif detectionMode end with 'matrix' - [3x3, 3x3_HAMMING63, 3x3_PARITY65, 4x4, 4x4_BCH_13_9_3, 4x4_BCH_13_5_5]
    		//matrixCodeType: '3x3',
    		// Pattern ratio for custom markers
@@ -116,9 +116,10 @@ window.addEventListener("DOMContentLoaded", () => {
 		const cylgeometry = new THREE.CylinderGeometry( 0.5, 0.5, 2.0, 32 );
 		const cylmaterial = new THREE.MeshLambertMaterial( {color: 0xffff00} );
 		const cylinder = new THREE.Mesh( cylgeometry, cylmaterial );
-		markerRootHiro.add(cylinder);
 		cylinder.position.z=-2.5;
 		cylinder.position.x=5.0;
+
+		markerRootHiro.add(cylinder);
 
 		const video = document.getElementById( 'video' );
 		video.play();
@@ -126,7 +127,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		var planegeometry=new THREE.PlaneGeometry(1.6, 0.9);
 		var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
 		var planemesh=new THREE.Mesh(planegeometry, planematerial);
-		planemesh.position.set(-Math.PI/2, 0, 0);
+		planemesh.rotation.set(-Math.PI/2, 0, 0);
 		//planemesh.scale.set(10, 10, 10);
 
 		markerRootKanji.add(planemesh);
