@@ -94,7 +94,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 		
 	let markerControlsKanji = new THREEx.ArMarkerControls(arToolkitContext, markerRootKanji, {
-			type : 'pattern', patternUrl : "../assets/pattern-Kanji.patt"
+			type : 'pattern', patternUrl : "../assets/pattern-kanji.patt"
 	});
 
 		const boxgeometry = new THREE.BoxGeometry( 1, 1, 1 );
