@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { MindARThree } from 'mindar-face-three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 window.addEventListener("DOMContentLoaded", async() => {
 
@@ -16,6 +17,42 @@ window.addEventListener("DOMContentLoaded", async() => {
       const sphere = new THREE.Mesh( geometry, material );
 
       anchor.group.add(sphere);
+
+      const anchor2 = mindarThree.addAnchor(10);
+
+      var lightOne=new THREE.AmbientLight(0xffffff, 1);
+            scene.add(lightOne);
+
+            const light = new THREE.HemisphereLight( 0xffffbb, 0xcccccc, 1 );
+            scene.add( light );
+
+            // Instantiate a loader
+            const loader = new GLTFLoader();
+
+            // Load a glTF resource
+            loader.load(
+                  // resource URL
+                  '../assets/train.glb',
+                  // called when the resource is loaded
+                  function ( gltf ) {
+                        //gltf.scene.scale.set(0.1,0.1,0.1);
+                       // gltf.scene.position.z=-6;
+                        gltf.scene.rotation.y=+Math.PI/4;
+                        //scene.add( );
+                        anchor.group.add(gltf.scene);
+                        //console.log(gltf);
+                  },
+                  // called while loading is progressing
+                  function ( xhr ) {
+                        console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                  },
+                  // called when loading has errors
+                  function ( error ) {
+                        console.log( 'An error happened' );
+                  }
+            );
+          
+      //anchor.group.add(sphere);
 
       await mindarThree.start();
 
