@@ -12,8 +12,11 @@ window.addEventListener("DOMContentLoaded", async() => {
 
       const anchor = mindarThree.addAnchor(1);
 
-      const geometry = new THREE.SphereGeometry( 0.1, 32, 16 );
-      const material = new THREE.MeshBasicMaterial( {color: 0x00ffff, transparent: true, opacity: 0.5} );
+
+
+
+      const geometry = new THREE.PlaneGeometry( 1, 1 );
+      const material = new THREE.MeshBasicMaterial( {color: 0xffffff, transparent: true, opacity: 0.5, map:(new THREE.TextureLoader()).load(  '../assets/mesh_map.jpg')} );
       const sphere = new THREE.Mesh( geometry, material );
 
       anchor.group.add(sphere);
@@ -37,6 +40,7 @@ window.addEventListener("DOMContentLoaded", async() => {
                   function ( gltf ) {
                         gltf.scene.scale.set(0.2,0.2,0.2);
                         gltf.scene.position.y=0.5;
+                        gltf.scene.position.x=-1.5;
                         gltf.scene.rotation.y=+Math.PI/4;
                         //scene.add( );
                         anchor.group.add(gltf.scene);
