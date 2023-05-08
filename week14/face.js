@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", async() => {
             // Load a glTF resource
             loader.load(
                   // resource URL
-                  '../assets/train.glb',
+                  '../assets/birch_tree_-_low_poly.glb',
                   // called when the resource is loaded
                   function ( gltf ) {
                         gltf.scene.scale.set(0.2,0.2,0.2);
