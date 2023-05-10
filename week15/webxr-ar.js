@@ -7,25 +7,7 @@
         // Make a new scene
         let scene = new THREE.Scene();
        
-        // Make a camera. note that far is set to 100, which is better for realworld sized environments
-        let camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-        camera.position.set(0, 1.6, 3);
-        scene.add(camera);
-
-        // Add some lights
-        var light = new THREE.DirectionalLight(0xffffff,0.5);
-        light.position.set(1, 1, 1).normalize();
-        scene.add(light);
-
-        scene.add(new THREE.AmbientLight(0xffffff,0.5))
-
-        // Make a red cube
-        let cube = new THREE.Mesh(
-            new THREE.BoxBufferGeometry(1,1,1),
-            new THREE.MeshLambertMaterial({color:'red'})
-        );
-        cube.position.set(0, 1.5, -1);
-        scene.add(cube);
+        let camera = new THREE.PerspectiveCamera();
 
         // Make a renderer that fills the screen
         let renderer = new THREE.WebGLRenderer({antialias: true});
@@ -35,22 +17,25 @@
         renderer.xr.enabled = true;
          // Add canvas to the page
         document.body.appendChild(renderer.domElement);
+        
+        // Add some lights
+        scene.add(new THREE.AmbientLight(0xffffff,0.5))
+        const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
+        scene.add(light);
 
+        // Make a red cube
+        let cube = new THREE.Mesh(
+            new THREE.BoxGeometry(0.10,0.10,0.10),
+            new THREE.MeshLambertMaterial({color:'green'})
+        );
+        cube.position.set(0, 0.1, -0.3);
+        scene.add(cube);
+        
         // Add a button to enter/exit ar to the page
         document.body.appendChild(ARButton.createButton(renderer));
 
         // Set animation loop
         renderer.setAnimationLoop((time) => {
-            // Rotate the cube
-            cube.rotation.y = time / 1000;
-            // Draw everything
             renderer.render(scene, camera);
         });
-       
-        // Handle browser resize
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }, false);
- });
+  });
