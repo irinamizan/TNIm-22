@@ -1,7 +1,7 @@
              // Import three
         import * as THREE from 'https://unpkg.com/three@0.152.2/build/three.module.js';
-        // Import the default VRButton
-        import { VRButton } from 'https://unpkg.com/three@0.152.2/examples/jsm/webxr/VRButton.js';
+        // Import the default ARButton
+        import { ARButton } from 'https://unpkg.com/three@0.152.2/examples/jsm/webxr/ARButton.js';
 
         window.addEventListener("DOMContentLoaded", () => {
         // Make a new scene
@@ -36,13 +36,8 @@
          // Add canvas to the page
         document.body.appendChild(renderer.domElement);
 
-        // Add a button to enter/exit vr to the page
-        document.body.appendChild(VRButton.createButton(renderer));
-
-        // For AR instead, import ARButton at the top
-        //    import { ARButton } from 'https://unpkg.com/three/examples/jsm/webxr/ARButton.js';
-        // then create the button
-        //  document.body.appendChild(ARButton.createButton(renderer));
+        // Add a button to enter/exit ar to the page
+        document.body.appendChild(ARButton.createButton(renderer));
 
         // Set animation loop
         renderer.setAnimationLoop((time) => {
