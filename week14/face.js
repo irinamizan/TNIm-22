@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", async() => {
                   '../assets/birch_tree_-_low_poly.glb',
                   // called when the resource is loaded
                   function ( gltf ) {
-                        gltf.scene.scale.set(0.005,0.005,0.005);
+                        gltf.scene.scale.set(0.001,0.001,0.001);
                         gltf.scene.position.y=0.5;
                         gltf.scene.position.x=-1.5;
                         gltf.scene.rotation.y=+Math.PI/4;
