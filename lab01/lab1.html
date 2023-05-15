@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 
 <html>
- 		<script src="../aframe/aframe.min.js"></script>
+ 		 		<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+				<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+	<body>
  		<a-scene embedded arjs="trackingMethod: best;">
  			<a-marker type="pattern" url="../assets/pattern-Coat_of_Arms_of_Kryvyy_Rih.patt">
- 				<a-sky color="grey"></a-sky>
+ 				<!--<a-sky color="grey"></a-sky>-->
 		 			<a-box depth="2" height="2" width="6" position="0 0 -5" src="../assets/brick_bump.jpg" rotation="0 0 0"></a-box>
 		 			<a-box depth="4" height="2" width="2" position="-4 0 -6" src="../assets/brick_diffuse.jpg" rotation="0 0 0"></a-box>
 		 			<a-box depth="5" height="2" width="2" position="4 0 -7" src="../assets/brick_roughness.jpg" rotation="0 0 0"></a-box>
@@ -21,4 +23,5 @@ type: color; from: green; to: red; loop: true; dur: 10000"></a-torus>
 			<a-entity run></a-entity>
 			<a-entity camera></a-entity>
 			</a-scene>
+	</body>
 </html> 
