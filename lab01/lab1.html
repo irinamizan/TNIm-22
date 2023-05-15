@@ -4,7 +4,9 @@
  		<script src="../aframe/aframe.min.js"></script>
  		<a-scene>
  			<a-sky color="grey"></a-sky>
- 			<a-box depth="2" height="2" width="5" position="0 0 -5" srs="../assets/brick_bump.jpg"></a-box>
+ 			<a-box depth="2" height="2" width="5" position="0 0 -5" src="../assets/brick_bump.jpg" rotation="0 0 0"></a-box>
+ 			<a-box depth="4" height="2" width="2" position="-3 0 -5" src="../assets/brick_diffuse.jpg" rotation="0 0 0"></a-box>
+ 			<a-box depth="5" height="2" width="2" position="3 0 -5" src="../assets/brick_roughness.jpg" rotation="0 0 0"></a-box>
 			<!--<a-torus position="-2 1 -5" color="green" radius="1.2" animation="property: components.material.material.color;
 type: color; from: green; to: red; loop: true; dur: 10000"></a-torus>
 			<a-plane src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/illustration/758px-Canestra_di_frutta_(Caravaggio).jpg"  width="7" height="7" rotation="-55 0 0" position="-2 -2 -5" color="purple"></a-plane>
