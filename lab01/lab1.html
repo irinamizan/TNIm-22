@@ -5,7 +5,7 @@
 				<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 	<body>
  		<a-scene embedded arjs="trackingMethod: best;">
- 			<a-marker type="pattern" url="../assets/pattern-Coat_of_Arms_of_Kryvyy_Rih.patt">
+ 			<a-marker type="pattern" url="../assets/pattern-Coat_of_Arms_of_Kryvyy_Rih.patt" registerevents>
  				<!--<a-sky color="grey"></a-sky>-->
 		 			<a-box depth="2" height="2" width="6" position="0 0 -5" src="../assets/brick_bump.jpg" rotation="0 0 0"></a-box>
 		 			<a-box depth="4" height="2" width="2" position="-4 0 -6" src="../assets/brick_diffuse.jpg" rotation="0 0 0"></a-box>
@@ -21,6 +21,7 @@ type: color; from: green; to: red; loop: true; dur: 10000"></a-torus>
 			<a-plane width="11" height="2" position="3 1 -9"></a-plane>
 			<a-text font="timesi-msdf.json" negate="false" value="Мізан Ірина, група ТНІм-22" color="black" width="10" position="-0.5 1 -6"></a-text>-->
 			<a-entity run></a-entity>
+			
 			<a-entity camera></a-entity>
 			</a-scene>
 	</body>
