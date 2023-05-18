@@ -72,7 +72,7 @@ function init()
 		var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
 		var planemesh=new THREE.Mesh(planegeometry, planematerial);
 		planemesh.position.set(70, -20, -100);
-		planemesh.scale.set(10, 10, 10);
+		planemesh.scale.set(1, 1, 1);
 		scene.add(planemesh);
 		
 		const video2 = document.getElementById( 'video2' );
