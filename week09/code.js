@@ -72,7 +72,7 @@ function init()
 		var planematerial=new THREE.MeshBasicMaterial({color:0xffffff, map: texture});
 		var planemesh=new THREE.Mesh(planegeometry, planematerial);
 		planemesh.position.set(70, -20, -100);
-		planemesh.scale.set(1, 1, 1);
+		planemesh.scale.set(5, 5, 5);
 		scene.add(planemesh);
 		
 		const video2 = document.getElementById( 'video2' );
@@ -95,8 +95,8 @@ function init()
 		
 		modelloader.load( '../assets/birch_tree_-_low_poly.glb', function ( gltf ) {
 					scene.add(gltf.scene);
-					gltf.scene.position.set(-10,2,0);
-					gltf.scene.scale.set(0.1,0.1,0.1);
+					gltf.scene.position.set(0,0,-20);
+					gltf.scene.scale.set(0.01,0.01,0.01);
 		}, function ( xhr ) {
 				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 		}, function ( error ) {
