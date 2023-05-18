@@ -95,8 +95,8 @@ function init()
 		
 		modelloader.load( '../assets/birch_tree_-_low_poly.glb', function ( gltf ) {
 					scene.add(gltf.scene);
-					gltf.scene.position.set(-5,2,0);
-					gltf.scene.scale.set(2,2,2);
+					gltf.scene.position.set(-10,2,0);
+					gltf.scene.scale.set(0.1,0.1,0.1);
 		}, function ( xhr ) {
 				console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
 		}, function ( error ) {
